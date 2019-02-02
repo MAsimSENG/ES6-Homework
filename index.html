@@ -1,0 +1,66 @@
+<html>
+<body>
+  <p> Hello there </p>
+<script>
+
+// object literal
+var myfav_naat = {
+  1: "naat1",
+  2: "naat2",
+  3: "naat3",
+};
+
+/*
+ go through myfav_naat object and make each index an object
+ */
+
+for(x=0; x<4; x++) {
+myfav_naat[x] = {
+  naatname: "naat"+x,
+  artist : "Junaid Jamshed",
+  time: "5 minutes",
+  YearProduced: "2005",
+  isinstrument: false,
+  isvocal:true
+};
+}
+/*
+  console log each index of myfav_naat object
+*/
+
+for(x = 0; x<4; x++) {
+  console.log(myfav_naat[x])
+}
+/*
+create a prototype for other naats
+*/
+
+function Naats (naatname,artist,time,yearproduced){
+;
+  this.naat = naatname;
+  this.artist = artist;
+  this.time = time;
+  this.yearproduced = yearproduced;
+  this.naat_data= {
+    name: this.naat,
+    artist: this.artist,
+    time: this.time,
+    productionyear: this.yearproduced,
+    vocal: true
+};
+
+}
+// name naats as naat 1, naat 2 .. naat x and store the objects in an array
+
+naatArray = []
+
+for (x = 0; x<4; x++){
+  var naat = "naat"+x;
+  newNaat=  new Naats(naat,"JJ","2minute","2005");
+  naatArray.push(newNaat.naat_data);
+}
+console.log(naatArray);
+
+</script>
+</body>
+</html>
