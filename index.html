@@ -1,0 +1,53 @@
+<html>
+<script>
+/*
+
+All men are mortal
+Socrates is a man.
+Therefore, socrates is mortal.
+
+*/
+
+/*
+
+Create an object whose element is man and men.
+man is an obeject with 2 keys: mortal and cake
+men is an array with string values
+*/
+things = {
+  man: {
+    mortal: true,
+    cake: "Vanilla"
+  },
+  men: ["Socrates", "Newton","..."]
+};
+
+/*
+    If Socrates is the array men and a man has the property
+    of being a mortal then print socrates is a mortal man.
+*/
+
+let x = 0;
+for(x=0; x<things.men.length; x++) {
+  if(things.men[x]=="Socrates" && things.man.mortal) {
+    console.log("Socrates is a mortal man.");
+}
+
+}
+
+
+/*  This cake is either vanilla or chocolate.
+    This cake is not chocolate.
+    Therefore, this cake is vanilla.
+  */
+  if (things.man.cake =="Vanilla" || things.man.cake == "Choclate") {
+    if(things.man.cake == "Choclate"){
+      console.log("No!");
+    }
+    else {
+      console.log("The cake is", things.man.cake);
+    }
+  }
+
+  </script>
+</html>
