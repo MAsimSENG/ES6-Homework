@@ -1,0 +1,40 @@
+
+<html>
+<script>
+  /*
+
+    you should create a function that accepts a name and returns a boolean (True or False)
+    representing whether that name identifies a man who is mortal or not.
+    Your function to gracefully handle unexpected inputs (such as an unrecognized name
+    or a name that is a not a string at all) without throwing an exception.
+
+  */
+
+// array of mortal men
+let mortalMen = ['socrates', 'Newton','Einstein','...'];
+
+// bool variable used to check whether a person is mortal
+
+let isMortal= false;
+
+/*
+
+ function takes 1 parameter and loops through all the items in mortal
+  in the mortalMen array checking whether the parameter passed into the function
+  matches a name in the array. If there is a match make the bool variable true and return it
+
+*/
+
+const ismortalMen = (name)=> {
+  mortalMen.forEach((n) => {
+    if (n == name) {
+      isMortal= true;
+    }
+  });
+  return isMortal;
+}
+
+  console.log(ismortalMen("Socrates"));
+
+</script>
+</html>
