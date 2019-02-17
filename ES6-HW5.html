@@ -1,0 +1,166 @@
+<html>
+<script type="text/javascript">
+  
+  /*
+Create a function called "timeAdder" that can add two time values together.
+For example, it should be able to add 25 hours and 3 days together.
+value1, label1, value2, label2
+- value1 and value2 should accept positive integers
+- label1 and label2 should accept any of the following strings:
+ "seconds", "minutes", "hours", "days", "second", "minute", "hour", "day"
+*/
+
+
+
+ let labels = ["seconds", "minutes", "hours", "days", "second", "minute", "hour", "day"];
+
+ /*
+  a function that checks that valid input parameters are passed to
+  the timeAdder function.
+  */
+const switchCheck = (value,label) => {
+
+  let isLabel = false;
+
+// check if the label is present in the labels array
+  labels.forEach((l) => {
+    if(l == label){
+      isLabel = true;
+    }
+  });
+
+  // incase label is not present return false
+    if(isLabel == false){
+      return false;
+    }
+
+  // if # is not int and value is not >0 return false
+  if (!(Number.isInteger(value) && value >0)){
+    return false;
+  }
+
+  switch(label){
+  case "seconds":
+    if(value == 1){
+        return false;
+    }
+    break;
+  case "minutes":
+    if(value == 1){
+        return false;
+    }
+    break;
+
+  case "hours":
+    if(value == 1){
+      return false;
+  }
+  break;
+
+  case "days":
+    if(value==1){
+      return false;
+  }
+  break;
+
+  case "second":
+    if(value>1){
+      return false;
+  }
+  break;
+
+  console.log("made it here");
+
+  case "minute":
+    if(value >1){
+      return false;
+  }
+  break;
+
+
+  case "hour":
+    if(value >1){
+      return false;
+  }
+  break;
+
+
+  case "days":
+    if(value >1){
+      return false;
+  }
+  break;
+
+
+  }
+
+  return true;
+
+}
+
+const to_minuteWeight = (label) => {
+
+  switch(label){
+  case "second":
+  case "seconds":
+      return 1/60;
+  break;
+  case "minutes":
+  case "minute":
+      return 1;
+  break;
+
+  case "hours":
+  case "hour":
+      return 60;
+      break;
+
+  case "days":
+  case "day":
+    return 1440;
+  break;
+
+  }
+
+}
+
+const timeAdder = (value1, label1, value2, label2)=> {
+
+// check that all parameters are correct
+  if (!(switchCheck(value1,label1))){
+    return false;
+  }
+  if (!(switchCheck(value2,label2))){
+    return false;
+  }
+
+// closure function
+  const timeArithmetic = (val1, lab1, val2, lab2) => {
+    let  firstAdder =0;
+    let  secondAdder=0;
+
+    // convert labels into their equivalent weight in minute ie 1h = 60 min
+    firstAdder =   to_minuteWeight(lab1);
+    secondAdder = to_minuteWeight(lab2);
+
+    let time_minutes = 0;
+    time_minutes = firstAdder * val1 + secondAdder * val2;
+
+    return time_minutes;
+
+  }
+  let timeObject = {
+    value: 0,
+    unit: "minutes"
+  };
+
+  timeObject.value = timeArithmetic(value1, label1, value2, label2);
+
+  return timeObject;
+}
+
+console.log(timeAdder(12,"hours",3,"seconds"));
+
+</script>
+
+</html>
