@@ -1,0 +1,84 @@
+<html>
+<head>
+</head>
+<body>
+  <div id="title">
+    <h2> This page displays random colors.
+      This is an assignment for ES6 </h2>
+  </div>
+
+  <div id = "rectangleWrapper">
+
+  </div>
+<script>
+
+// create an h1 tag for the title of the page
+
+const titleH = document.createElement("H1");
+titleH.innerText = "Asim's Favorite Colors!";
+
+// get the div with id title
+const divE = document.getElementById("title");
+
+// get the div with id rectangleWrapper
+const divRect = document.getElementById("rectangleWrapper");
+
+// give rectangleWrapper padding of 50 50 50 0
+divRect.style.padding = "50 0 50 50"
+
+// append the titleH as the top element in div
+divArray =[]
+divE.insertBefore(titleH,divE.childNodes[0]);
+
+// create 10 div elements and put them into array and give them ids
+for(i =0; i<10;i++){
+  divArray[i] = document.createElement("div");
+  let sId = "rect"+ i.toString()
+
+  // giv each div id, ex rect1 for div 1 .
+  divArray[i].id = sId;
+}
+
+// go through each created div element and give it class name rect and add it as a child to rect div
+for(prop of divArray) {
+
+  // giv each div class name rect
+  prop.classList.add("rect");
+  // make each div a child of divRect
+  divRect.appendChild(prop);
+}
+
+// get all elements with class name rect
+const rectClass = document.querySelectorAll(".rect");
+
+// go through all elements with class name rect and  apply styling
+
+for(node of rectClass) {
+  // create rectange 50 x 70
+  node.style.height = "100px";
+  node.style.width = "150px";
+  // create random color
+  var x = Math.floor(Math.random() * 256);
+  var y = Math.floor(Math.random() * 256);
+  var z = Math.floor(Math.random() * 256);  node.style.color= "rgb";
+  var Color = "rgb(" + x + "," + y + "," + z + ")";
+  node.style.backgroundColor = Color;
+  x = x.toString();
+  y=y.toString();
+  z= z.toString();
+  node.innerText = "Color RGB:" + x +" " + y+" "+z;
+  //node.appendChild(hexP);
+
+}
+const titleElement = document.createElement("TITLE");
+document.head.appendChild(titleElement);
+titleElement.innerText = titleH.innerText;
+console.log("Here are the rectange ID's");
+for(prop of rectClass) {
+  console.log(prop.id);
+}
+
+</script>
+</body>
+
+</html>
